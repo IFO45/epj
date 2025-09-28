@@ -1,0 +1,34 @@
+package com.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/login-form")
+public class MyServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+
+        // Get initial parameter from web.xml
+        String name = getServletConfig().getInitParameter("name");
+
+        out.println("<html><body>");
+        out.println("<h2> Hello " + name + "</h2>");
+
+        // Create HTML form for reading login details
+        out.println("<form action='second' method='GET'>");
+        out.println("Name : <input type='text' name='name' /><br/>");
+        out.println("Email : <input type='email' name='email' /><br/>");
+        out.println("Password : <input type='password' name='password' />");
+        out.println("<input type='submit' />");
+        out.println("</form>");
+        out.println("</body></html>");
+    }
+}

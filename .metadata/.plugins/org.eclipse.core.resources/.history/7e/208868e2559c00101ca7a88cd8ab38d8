@@ -1,0 +1,61 @@
+package com.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/RequestDetails")
+public class RequestDetailsServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Request Details</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Request Details</h1>");
+
+        out.println("<h2>Request Information</h2>");
+        out.println("Method: " + request.getMethod() + "<br>");
+        out.println("Request URI: " + request.getRequestURI() + "<br>");
+        out.println("Protocol: " + request.getProtocol() + "<br>");
+        out.println("Remote Address: " + request.getRemoteAddr() + "<br>");
+
+        out.println("<h2>Headers</h2>");
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            out.println(headerName + ": " + request.getHeader(headerName) + "<br>");
+        }
+
+        out.println("<h2>Parameters</h2>");
+        Enumeration<String> parameterNames = request.getParameterNames();
+        if (!parameterNames.hasMoreElements()) {
+            out.println("No parameters in this request.<br>");
+        } else {
+            while (parameterNames.hasMoreElements()) {
+                String paramName = parameterNames.nextElement();
+                out.println(paramName + ": " + request.getParameter(paramName) + "<br>");
+            }
+        }
+
+        out.println("</body>
+</html>");
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
+}

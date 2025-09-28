@@ -1,0 +1,55 @@
+package curd;
+
+import java.sql.*;
+import java.util.Scanner;
+public class Connect {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc = new Scanner(System.in);
+        try {
+            // 1. Connect to Database
+            Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/labdb", "root", "12345");
+
+            // 2. Create table if it does not exist
+            Statement stmt = conn.createStatement();
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS students (" +
+                                      "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                                      "name VARCHAR(100), " +
+                                      "age INT)";
+            stmt.executeUpdate(createTableQuery);
+
+            // 3. Take user input
+            System.out.print("Enter student name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter student age: ");
+            int age = sc.nextInt();
+
+            // 4. Insert data using PreparedStatement
+            String insertQuery = "INSERT INTO students (name, age) VALUES (?, ?)";
+            PreparedStatement pstmt = conn.prepareStatement(insertQuery);
+            pstmt.setString(1, name);
+            pstmt.setInt(2, age);
+            pstmt.executeUpdate();
+            System.out.println("✔ Student record inserted successfully!\n");
+
+            // 5. Retrieve data
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+            System.out.println("📋 Students in database:");
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("id") +
+                                   ", Name: " + rs.getString("name") +
+                                   ", Age: " + rs.getInt("age"));
+            }
+
+            // 6. Close connection
+            conn.close();
+            sc.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+
+}

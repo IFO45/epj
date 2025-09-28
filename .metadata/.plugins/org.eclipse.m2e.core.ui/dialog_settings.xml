@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\ifo\2303051050353\Servers\Tomcat v11.0 Server at localhost-config"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="cam.servlet"/>
+			<item value="com.servelet"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="practical-3"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 5 - Hibernate\hibernate"/>
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 6 - Spring curd"/>
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 5 - Hibernate"/>
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 4 - JSP\com.5a1servlet"/>
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 3 - Servlets\com.servlet"/>
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 7 - Springboot curd"/>
+			<item value="C:\Users\ifo\Desktop\New folder (5)\EPJ-Particals-5A1-5A5--main\Practical 6 - Spring curd\com.spring"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

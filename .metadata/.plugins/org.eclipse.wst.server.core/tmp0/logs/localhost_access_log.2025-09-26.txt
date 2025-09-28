@@ -1,0 +1,12 @@
+127.0.0.1 - - [26/Sep/2025:12:32:23 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:32:24 +0530] "GET /practical-3/servlet/com.servlet.HelloWorldServlet HTTP/1.1" 404 809
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:32:24 +0530] "GET /favicon.ico HTTP/1.1" 404 763
+127.0.0.1 - - [26/Sep/2025:12:34:33 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:34:34 +0530] "GET /practical-3/servlet/com.servlet.HelloWorldServlet HTTP/1.1" 404 809
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:39:17 +0530] "GET /practical-3/servlet/hello HTTP/1.1" 404 785
+127.0.0.1 - - [26/Sep/2025:12:44:23 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:44:23 +0530] "GET /practical-3/hello HTTP/1.1" 200 24
+127.0.0.1 - - [26/Sep/2025:12:46:43 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:46:43 +0530] "GET /practical-3/servlet/com.servlet.RequestDetailsServlet HTTP/1.1" 404 813
+127.0.0.1 - - [26/Sep/2025:12:54:34 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [26/Sep/2025:12:54:35 +0530] "GET /practical-3/servlet/com.servlet.RequestDetailsServlet HTTP/1.1" 404 813

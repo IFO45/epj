@@ -1,0 +1,64 @@
+package curd;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class PreparedStatementDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            // 1. Connect to Database
+            Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/parul?useSSL=false", "root", "password");
+
+            // 2. Create table if it doesn’t exist
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS employees (" +
+                                      "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                                      "name VARCHAR(100) NOT NULL, " +
+                                      "salary DOUBLE NOT NULL)";
+            try (Statement stmt = conn.createStatement()) {
+                stmt.executeUpdate(createTableQuery);
+            }
+
+            // 3. Insert data using PreparedStatement
+            System.out.print("Enter employee name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter employee salary: ");
+            double salary = sc.nextDouble();
+
+            String insertQuery = "INSERT INTO employees (name, salary) VALUES (?, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(insertQuery)) {
+                pstmt.setString(1, name);   // bind parameter 1
+                pstmt.setDouble(2, salary); // bind parameter 2
+                pstmt.executeUpdate();
+                System.out.println("✔ Record inserted successfully!\n");
+            }
+
+            // 4. Retrieve data using ResultSet
+            String selectQuery = "SELECT * FROM employees";
+            try (PreparedStatement pstmt = conn.prepareStatement(selectQuery);
+                 ResultSet rs = pstmt.executeQuery()) {
+
+                System.out.println("📋 Employee Records:");
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String empName = rs.getString("name");
+                    double empSalary = rs.getDouble("salary");
+
+                    System.out.println("ID: " + id +
+                                       ", Name: " + empName +
+                                       ", Salary: " + empSalary);
+                }
+            }
+
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        sc.close();
+    }
+}
