@@ -15,15 +15,35 @@ public class ThirdServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
-		HttpSession session = req.getSession();
+		HttpSession session = req.getSession(false); // Using getSession(false) is safer if the session might not exist
 		
-		// read name & email from HttpSession
-		String name = (String) session.getAttribute("name");
-		String email = session.getAttribute("email").toString();
+		String name = "Kartik";
+		String email = "kartik@gmail.com";
 		
+		// Only proceed if a session exists
+		if (session != null) {
+			
+			// Read name from HttpSession
+			Object nameObj = session.getAttribute("name");
+			if (nameObj != null) {
+				// The original code was: String name = (String) session.getAttribute("name");
+				name = (String) nameObj;
+			}
+			
+			// Read email from HttpSession
+			Object emailObj = session.getAttribute("email");
+			if (emailObj != null) {
+				// The original code caused the error: String email = session.getAttribute("email").toString();
+				// This fix checks for null before calling toString()
+				email = emailObj.toString();
+			}
+		}
 		
 		// print readed details
-		resp.getWriter().println("Name : " + name);
+		resp.getWriter().println("<html><body>");
+		resp.getWriter().println("<h1>Session Details</h1>");
+		resp.getWriter().println("Name : " + name + "<br>");
 		resp.getWriter().println("Email : " + email);
+		resp.getWriter().println("</body></html>");
 	}
 }
